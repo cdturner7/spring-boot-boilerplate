@@ -1,0 +1,35 @@
+<!--
+ *******************************************************************************
+ * Project: Boilerplate
+ *
+ * Author: Collin Turner
+ * =============================================================================
+ * (c) Copyright 2025 Code Green Web Design All rights reserved.
+ *******************************************************************************
+-->
+ <!DOCTYPE html>
+<html>
+    <!-- insert head -->
+    <head>
+        <th:block th:replace="~{fragments/head :: head}"/>
+        <!-- Each token will be replaced by their respective titles in the resulting page. -->
+        <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Boilerplate</title>
+    </head>
+
+    <!-- start of body -->
+    <body class="container">
+        <!-- insert header -->
+        <th:block th:replace="~{fragments/header :: header}"></th:block>
+        
+        <!-- start main content -->
+        <th:block layout:fragment="content"></th:block>
+        <!-- end main content -->
+
+        <!-- insert footer -->
+        <th:block th:replace="~{fragments/footer :: footer}"></th:block>
+
+        
+    </body>
+    <!-- end body -->
+    
+</html>

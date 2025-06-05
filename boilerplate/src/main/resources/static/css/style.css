@@ -1,0 +1,360 @@
+/*
+ *******************************************************************************
+ * Project: Boilerplate
+ *
+ * Author: Collin Turner
+ * =============================================================================
+ * (c) Copyright 2025 Code Green Web Design All rights reserved.
+ *******************************************************************************
+*/
+
+:root {
+
+    /* colors */
+    --color-white: #fff;
+    --color-gray-100: #eee;
+    --color-gray-200: #d6d6d6;
+    --color-gray-300: #bebebe;
+    --color-gray-400: #a6a6a6;
+    --color-gray-500: #8e8e8e;
+    --color-gray-600: #5f5f5f;
+    --color-gray-700: #474747;
+    --color-gray-800: #2f2f2f;
+    --color-gray-900: #171717;
+    --color-black: #0d0f13;
+
+    /* greens */
+    --color-green-100: #021b1a;
+    --color-green-200: #032221;
+    --color-green-300: #03624c;
+    --color-green-400: #2cc295;
+    --color-green-500: #00DF81;
+    --color-green-600: #f1f7f6;
+
+    --color-light-blue: #76ABAE;
+    --color-purple: #b702ff;
+    --color-red: #C23535;
+
+    --color-white-transparent: #ffffff4D;
+    --color-black-transparent: #0000004D;
+
+    --color-transparent: #ffffff00;
+
+    /* fonts */
+    --font-poppins: 'Poppins', sans-serif;
+    --font-montserrat: 'Montserrat', sans-serif;
+    --font-roboto-flex: 'Roboto Flex', sans-serif;
+    --font-michroma: 'Michroma', sans-serif;
+
+    /* border radius */
+    --border-radius-circle: 100rem;
+    --border-radius-default: 0.5rem;
+
+    /* box shadow */
+    --webkit-box-shadow-default: 0px 5px 10px 0px #414d5e70;
+    --box-shadow-default: 0px 5px 10px 0px #414d5e70;
+    --webkit-box-shadow-default-hover: 0px 1px 5px 0px #414d5e70;
+    --box-shadow-default-hover: 0px 1px 5px 0px #414d5e70;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    font-family: var(--font-poppins);
+    font-weight: 300;
+    color: var(--color-black);
+}
+
+body {
+    background-color: var(--color-background);
+    width: 100%;
+    min-height: 100vh;
+}
+
+header, footer {
+    margin-block: 2rem;
+}
+
+button {
+    display: inline-block;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: var(--border-radius-default);
+    -webkit-box-shadow: var(--webkit-box-shadow-default);
+    box-shadow: var(--box-shadow-default);
+    transition: .5s ease;
+    overflow: hidden;
+}
+
+button:hover {
+    -webkit-box-shadow: var(--webkit-box-shadow-default-hover);
+    box-shadow: var(--box-shadow-default-hover);
+}
+
+button > p {
+    margin: 0;
+}
+
+button > span {
+    color: var(--color-white) !important;
+}
+
+button.primary::before {
+    content: '';
+    width: 0;
+    height: 100%;
+    border-radius: var(--border-radius-default);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, var(--color-green-400) 0%, var(--color-green-500) 100%);
+    display: block;
+    z-index: -1;
+    transition: .5s ease;
+}
+   
+button.primary:hover::before {
+    width: 100%;
+}
+
+button.primary, button.secondary {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+    padding-block: 1rem;
+    position: relative;
+    background: var(--color-transparent);
+}
+
+button.secondary {
+    background-color: var(--color-green-400);
+}
+
+button.primary-alt, button.secondary-alt {
+    border-radius: var(--border-radius-circle);
+}
+
+button.primary-alt {
+    background-color: var(--color-green-200);
+}
+
+button.secondary-alt {
+    background-color: var(--color-light-blue);
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-montserrat);
+    font-weight: 300;
+}
+
+h1 {
+    font-size: 6rem;
+}
+
+h2 {
+    font-size: 5rem;
+}
+
+h3 {
+    font-size: 4rem;
+}
+
+h4 {
+    font-size: 3rem;
+}
+
+.poppins {
+    font-family: var(--font-poppins);
+}
+
+.michroma {
+    font-family: var(--font-michroma);
+}
+
+.montserrat {
+    font-family: var(--font-montserrat);
+}
+
+.roboto {
+    font-family: var(--font-roboto-flex);
+}
+
+.shadow {
+    -webkit-box-shadow: var(--webkit-box-shadow-default);
+    box-shadow: var(--box-shadow-default);
+}
+
+.shadow:hover {
+    -webkit-box-shadow: var(--webkit-box-shadow-default-hover);
+    box-shadow: var(--box-shadow-default-hover);
+}
+
+/* header logo */
+a.logo-link {
+    display: flex;
+}
+
+img.logo {
+    width: 50px;
+}
+
+/* cards */
+div.card {
+    max-width: 450px;
+}
+
+/* generic classes */
+.light-gray {
+    background-color: var(--color-gray-100);
+    color: var(--color-black);
+}
+
+.dark-gray {
+    background-color: var(--color-gray-700);
+    color: var(--color-white);
+}
+
+.bg-green {
+    background: var(--color-green-300);
+    color: var(--color-green-600);
+}
+
+.bg-dark {
+    background: var(--color-green-100);
+    color: var(--color-green-400);
+}
+
+.bg-bright-green {
+    background: var(--color-green-500);
+    color: var(--color-green-200);
+}
+
+/* fonts weights */
+.weight-100 {
+    font-weight: 100;
+}
+
+.weight-200 {
+    font-weight: 200;
+}
+
+.weight-300 {
+    font-weight: 300;
+}
+
+.weight-400 {
+    font-weight: 400;
+}
+
+.weight-500 {
+    font-weight: 500;
+}
+
+.weight-600 {
+    font-weight: 600;
+}
+
+.weight-700 {
+    font-weight: 700;
+}
+
+.weight-800 {
+    font-weight: 800;
+}
+
+.weight-900 {
+    font-weight: 900;
+}
+
+.center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.text-muted {
+    color: var(--color-dark-gray);
+}
+/* end generic classes */
+
+/* tooltips */
+.tool-tip {
+    position: relative;
+}
+
+@keyframes fadeIn {
+    0% {   opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {   opacity: 0; }
+    100% { opacity: 1; }
+}
+/* end tool-tips */
+
+/* icons */
+.material-symbols-outlined,
+.material-symbols-rounded {
+    color: var(--color-gray-100);
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 200,
+        'GRAD' 0,
+        'opsz' 24;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    padding-right: 5px;
+}
+/* end icons */
+
+/* flex content */
+.row,
+.column,
+.flex-center {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.flex-center {
+    align-items: center;
+    justify-content: center;
+}
+
+.column {
+    flex-direction: column;
+}
+/* end flex content */
+
+/* ascii art */
+.ascii-art {
+    font-family: monospace;
+    white-space: pre;
+}
+/* end ascii art */
+
+/* MAIN CONTENT */
+/*container */
+#main-content {
+    width: 100%;
+    height: 95vh;
+    display: flex;
+    flex-direction: row;
+}
