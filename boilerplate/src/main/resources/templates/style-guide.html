@@ -1,0 +1,37 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layouts/main-layout}">
+    
+    <head>
+        <title>Style Guide</title>
+    </head>
+
+    <body>
+
+        <!-- INDEX Page main content plug -->
+        <th:block layout:fragment="content">
+            
+            <div class="container light-background">
+                <h1>Style Guide</h1>
+
+                <div class="flex space-between row my-5">
+                    <h3 class="mb-2">Example Buttons</h3>
+                    <th:block th:replace="~{fragments/button :: primary('Primary', 'keep-active')}"></th:block>
+                    <th:block th:replace="~{fragments/button :: small('Small', 'keep-active')}"></th:block>
+                    <th:block th:replace="~{fragments/button :: icon('Icon', 'keep-active')}"></th:block>
+                    <th:block th:replace="~{fragments/button :: square('Square', 'keep-active')}"></th:block>
+                </div>
+
+                <div class="flex-center">
+                    <div class="box convex-neuo me-5 flex-center"><span>Button Box</span></div>
+                    <div class="box concave-neuo me-5 flex-center"><span>Button Active Box</span></div>
+                    <th:block th:replace="~{fragments/form :: form}"></th:block>
+                </div>
+            </div>
+
+        </th:block>
+
+    </body>
+
+</html>

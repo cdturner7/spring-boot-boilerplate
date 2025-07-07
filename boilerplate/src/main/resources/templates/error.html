@@ -1,0 +1,25 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layouts/main-layout}">
+    
+    <head>
+        <title>Oops!</title>
+    </head>
+
+    <body>
+
+        <!-- ERROR Page main content plug -->
+        <th:block layout:fragment="content">
+            
+            <div class="error-container">
+                <h1>Oops! Something went wrong.</h1>
+                <p th:if="${errorMessage}" th:text="${errorMessage}">An unexpected error occurred.</p>
+                <p><a th:href="@{/}">Return to Home</a></p>
+            </div>
+
+        </th:block>
+
+    </body>
+
+</html>

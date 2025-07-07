@@ -8,13 +8,15 @@
  *******************************************************************************
 */
 
-package com.cgwd.boilerplate.service;
+package com.cgwd.boilerplate.ui;
 
-import org.springframework.stereotype.Service;
+import lombok.Data;
 
-import com.cgwd.boilerplate.utils.BaseProcessor;
+@Data
+public class Link {
 
-@Service
-public class BaseService extends BaseProcessor {
+    private String text;
+
+    private String url;
 
 }

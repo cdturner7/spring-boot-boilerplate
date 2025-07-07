@@ -1,5 +1,5 @@
         <th:block th:fragment="header">
-            <header>
+            <header class="container">
                 <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
                     <div class="col-md-3 mb-2 mb-md-0">
                         <!-- logo -->
@@ -7,15 +7,15 @@
                             <img class="logo" th:src="@{/images/ide.png}" alt="Boilerplate Website Logo">
                         </a>
                     </div>
-            
+
                     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                        <li><a th:href="@{/}" class="nav-link px-2 link-secondary">Home</a></li>
-                        <li><a th:href="@{/sandbox}" class="nav-link px-2">Sandbox Page</a></li>
+                        <li th:each="link : ${headerLinks}" class="pe-2">
+                            <a th:href="@{${link.url}}" th:text="${link.text}"></a>
+                        </li>
                     </ul>
                 
                     <div class="col-md-3 text-end">
-                        <button type="button" class="sandbox-page-button btn btn-secondary">Sandbox</button>
-                        <button type="button" class="btn btn-primary">Sign-up</button>
+                        <!-- <button type="button" class="sandbox-page-button btn btn-secondary">Sandbox</button> -->
                     </div>
                 </div>
             </header>

@@ -1,0 +1,15 @@
+<th:block th:fragment="primary(text, additionalClasses)">
+    <button type="button" th:class="'primary-button convex-neuo ' + ${additionalClasses}" th:text="${text}"></button>
+</th:block>
+
+<th:block th:fragment="small(text, additionalClasses)">
+    <button type="button" th:class="'small-button convex-neuo ' + ${additionalClasses}" th:text="${text}"></button>
+</th:block>
+
+<th:block th:fragment="icon(text, additionalClasses)">
+    <button type="button" th:class="'icon-button convex-neuo ' + ${additionalClasses}" th:text="${text}"></button>
+</th:block>
+
+<th:block th:fragment="square(text, additionalClasses)">
+    <button type="button" th:class="'square-button convex-neuo ' + ${additionalClasses}" th:text="${text}"></button>
+</th:block>
