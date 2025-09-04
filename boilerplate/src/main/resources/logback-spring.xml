@@ -3,10 +3,10 @@
   <property name="LOG_FILE" value="boilerplate" />
   <property name="LOG_DIR" value="/logs" />
   
-  <!-- stdout log appender -->
-  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+  <!-- console log appender -->
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
     <encoder>
-      <pattern>%d{MM-dd-yyyy HH:mm:ss} %-5level %logger{0} - %msg%n</pattern>
+      <pattern>%d{MM-dd-yyyy HH:mm:ss} %highlight(%-5level) %magenta(%logger{0}.%M:%line) - %msg%n</pattern>
     </encoder>
   </appender>
 
@@ -14,7 +14,7 @@
   <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <file>${LOG_DIR}/${LOG_FILE}.log</file>
     <encoder>
-      <pattern>%d{MM-dd-yyyy HH:mm:ss} %-5level %logger{0} - %msg%n</pattern>
+      <pattern>%d{MM-dd-yyyy HH:mm:ss} %highlight(%-5level) %magenta(%logger{0}.%M:%line) - %msg%n</pattern>
     </encoder>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
       <!-- daily rollover -->
@@ -24,15 +24,11 @@
       <totalSizeCap>1GB</totalSizeCap>
     </rollingPolicy>
   </appender>
-  
-  <!-- application logger -->
-  <logger name="com.cgwd" level="DEBUG">
-    <appender-ref ref="FILE" />
-  </logger>
 
   <!-- root logger -->
   <root level="INFO">
-    <appender-ref ref="STDOUT" />
+    <appender-ref ref="FILE" />
+    <appender-ref ref="CONSOLE" />
   </root>
   
 </configuration>
