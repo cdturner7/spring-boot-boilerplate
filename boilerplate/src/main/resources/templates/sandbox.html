@@ -1,6 +1,7 @@
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="www.ultraq.net.nz"
       layout:decorate="~{layouts/main-layout}">
     
     <head>
@@ -8,17 +9,13 @@
     </head>
 
     <body>
-
-        <!-- INDEX Page main content plug -->
-        <th:block layout:fragment="content">
+        <div layout:fragment="content">
             
-            <div class="container light-background">
-                <h1>Sandbox Page</h1>
-
+            <div class="light-background">
+                <th:block th:replace="~{fragments/heading :: h1(#{sandbox})}"></th:block>
                 <p>Edit and test things with this page as needed.</p>
+            </div>
 
-        </th:block>
-
+        </div>
     </body>
-
 </html>

@@ -1,21 +1,23 @@
         <th:block th:fragment="header">
-            <header class="container">
-                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-                    <div class="col-md-3 mb-2 mb-md-0">
-                        <!-- logo -->
-                        <a class="logo-link" th:href="@{/}">
-                            <img class="logo" th:src="@{/images/ide.png}" alt="Boilerplate Website Logo">
-                        </a>
+            <header class="py-3 neu-shadow">
+                <div class="container mx-auto flex items-center justify-between lg:px-12">
+
+                    <div class="flex items-center justify-between gap-4">
+                        <!-- insert logo -->
+                        <th:block th:replace="~{fragments/logo :: logo}"></th:block>
+                        <h2 th:text="#{app.title}" class="text-2xl font-bold"></h2>
                     </div>
 
-                    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                        <li th:each="link : ${headerLinks}" class="pe-2">
-                            <a th:href="@{${link.url}}" th:text="${link.text}"></a>
-                        </li>
-                    </ul>
+                    <div class="flex-1 flex gap-4 place-content-center">
+                        <th:block th:replace="~{fragments/button :: link(#{home}, '/')}"></th:block>
+                        <th:block th:replace="~{fragments/button :: link(#{sandbox}, '/sandbox')}"></th:block>
+                        <th:block th:replace="~{fragments/button :: link(#{style.guide}, '/style-guide')}"></th:block>
+                        <th:block th:replace="~{fragments/button :: link(#{test}, '/test')}"></th:block>
+                    </div>
                 
-                    <div class="col-md-3 text-end">
-                        <!-- <button type="button" class="sandbox-page-button btn btn-secondary">Sandbox</button> -->
+                    <div class="col-md-3 text-end flex items-center justify-between gap-4">
+                        <th:block th:replace="~{fragments/button :: primary(#{login}, '/login')}"></th:block>
+                        <th:block th:replace="~{fragments/toggle :: theme}"></th:block>
                     </div>
                 </div>
             </header>

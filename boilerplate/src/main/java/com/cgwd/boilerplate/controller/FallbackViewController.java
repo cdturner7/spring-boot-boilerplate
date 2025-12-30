@@ -18,7 +18,6 @@ import org.springframework.web.server.ResponseStatusException;
 import com.cgwd.boilerplate.utils.TemplateScanner;
 import org.springframework.web.bind.annotation.GetMapping;
 
-
 @Controller
 @RequestMapping("/{viewName}")
 public class FallbackViewController {

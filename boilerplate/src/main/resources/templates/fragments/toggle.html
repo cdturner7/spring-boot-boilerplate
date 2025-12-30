@@ -1,0 +1,27 @@
+<th:block th:fragment="theme">
+    <div class="flex items-center gap-3">
+        <!-- Toggle Button Background -->
+        <button id="themeToggle"
+                class="relative w-16 h-8 rounded-full transition-all duration-300 focus:outline-none neu
+                       shadow-[inset_2px_2px_5px_rgba(0,0,0,0.1),inset_-2px_-2px_5px_rgba(255,255,255,0.7)]
+                       dark:shadow-[inset_2px_2px_5px_rgba(0,0,0,0.5),inset_-2px_-2px_5px_rgba(255,255,255,0.05)]">
+
+            <!-- Sliding Knob -->
+            <div id="toggleKnob"
+                 class="absolute top-1 left-1 w-6 h-6 rounded-full flex items-center justify-center
+                        transition-transform duration-300 ease-out neu
+                        shadow-[2px_2px_5px_rgba(0,0,0,0.2),-2px_-2px_5px_rgba(255,255,255,0.9)]
+                        dark:shadow-[2px_2px_5px_rgba(0,0,0,0.6),-2px_-2px_5px_rgba(255,255,255,0.1)]
+                        dark:translate-x-8">
+
+                <!-- Icon -->
+                <svg id="themeIcon"
+                     class="w-4 h-4 fill-gray-400 dark:fill-yellow-500 transition-colors duration-300"
+                     viewBox="0 0 20 20">
+                    <!-- Moon icon (default for light mode) -->
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+                </svg>
+            </div>
+        </button>
+    </div>
+</th:block>

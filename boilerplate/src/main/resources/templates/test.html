@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neumorphic Toggle</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <style>
+        /* Neumorphic shadows for light mode */
+        .neu-light {
+            background: #e0e5ec;
+            box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
+                       -9px -9px 16px rgba(255, 255, 255, 0.5);
+        }
+
+        .neu-light-inset {
+            background: #e0e5ec;
+            box-shadow: inset 6px 6px 12px rgba(163, 177, 198, 0.6),
+                       inset -6px -6px 12px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Neumorphic shadows for dark mode */
+        .neu-dark {
+            background: #2d3748;
+            box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.4),
+                       -9px -9px 16px rgba(55, 65, 81, 0.1);
+        }
+
+        .neu-dark-inset {
+            background: #2d3748;
+            box-shadow: inset 6px 6px 12px rgba(0, 0, 0, 0.4),
+                       inset -6px -6px 12px rgba(55, 65, 81, 0.1);
+        }
+
+        /* Toggle knob styles */
+        .toggle-knob {
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-knob.active {
+            transform: translateX(2rem);
+        }
+
+        /* Light/Dark mode backgrounds */
+        .light-bg {
+            background: #e0e5ec;
+        }
+
+        .dark-bg {
+            background: #1a202c;
+        }
+    </style>
+</head>
+<body class="transition-colors duration-300">
+<!-- Header -->
+<header class="py-4 px-6 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <h1 class="text-2xl font-bold transition-colors duration-300"><a th:href="@{/}">My App</a></h1>
+
+        <!-- Neumorphic Toggle Switch -->
+        <div class="flex items-center gap-3">
+            <button id="themeToggle" class="relative w-16 h-8 rounded-full cursor-pointer transition-all duration-300 focus:outline-none">
+                <div id="toggleKnob" class="toggle-knob absolute top-1 left-1 w-6 h-6 rounded-full flex items-center justify-center">
+                    <svg id="themeIcon" class="w-4 h-4 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/>
+                    </svg>
+                </div>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Sample Content -->
+<main class="max-w-7xl mx-auto px-6 py-8">
+    <div class="p-6 rounded-2xl transition-all duration-300">
+        <h2 class="text-xl font-semibold mb-4">Neumorphic Theme Toggle</h2>
+        <p class="transition-colors duration-300">
+            Toggle the switch above to experience the smooth transition between light and dark neumorphic themes.
+        </p>
+    </div>
+</main>
+
+<script>
+    const html = document.documentElement;
+    const body = document.body;
+    const header = document.querySelector('header');
+    const mainContent = document.querySelector('main > div');
+    const themeToggle = document.getElementById('themeToggle');
+    const toggleKnob = document.getElementById('toggleKnob');
+    const themeIcon = document.getElementById('themeIcon');
+    const h1 = document.querySelector('h1');
+    const h2 = document.querySelector('h2');
+    const p = document.querySelector('p');
+
+    // Check for saved theme preference or default to 'light'
+    const currentTheme = localStorage.getItem('theme') || 'light';
+
+    // Apply the theme on load
+    applyTheme(currentTheme);
+
+    // Toggle theme on button click
+    themeToggle.addEventListener('click', () => {
+        const newTheme = html.classList.contains('dark') ? 'light' : 'dark';
+        applyTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
+
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+            html.classList.add('dark');
+            html.classList.remove('light');
+            body.classList.add('dark-bg');
+            body.classList.remove('light-bg');
+
+            header.classList.add('neu-dark');
+            header.classList.remove('neu-light');
+
+            mainContent.classList.add('neu-dark');
+            mainContent.classList.remove('neu-light');
+
+            themeToggle.classList.add('neu-dark-inset');
+            themeToggle.classList.remove('neu-light-inset');
+
+            toggleKnob.classList.add('neu-dark', 'active');
+            toggleKnob.classList.remove('neu-light');
+
+            // Change icon to moon
+            themeIcon.innerHTML = '<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>';
+            themeIcon.classList.add('text-gray-100');
+            themeIcon.classList.remove('text-yellow-500');
+
+            h1.classList.add('text-gray-100');
+            h1.classList.remove('text-gray-800');
+
+            h2.classList.add('text-gray-100');
+            h2.classList.remove('text-gray-800');
+
+            p.classList.add('text-gray-300');
+            p.classList.remove('text-gray-600');
+        } else {
+            html.classList.add('light');
+            html.classList.remove('dark');
+            body.classList.add('light-bg');
+            body.classList.remove('dark-bg');
+
+            header.classList.add('neu-light');
+            header.classList.remove('neu-dark');
+
+            mainContent.classList.add('neu-light');
+            mainContent.classList.remove('neu-dark');
+
+            themeToggle.classList.add('neu-light-inset');
+            themeToggle.classList.remove('neu-dark-inset');
+
+            toggleKnob.classList.add('neu-light');
+            toggleKnob.classList.remove('neu-dark', 'active');
+
+            // Change icon to sun
+            themeIcon.innerHTML = '<path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/>';
+            themeIcon.classList.add('text-yellow-500');
+            themeIcon.classList.remove('text-gray-100');
+
+            h1.classList.add('text-gray-800');
+            h1.classList.remove('text-gray-100');
+
+            h2.classList.add('text-gray-800');
+            h2.classList.remove('text-gray-100');
+
+            p.classList.add('text-gray-600');
+            p.classList.remove('text-gray-300');
+        }
+    }
+</script>
+</body>
+</html>

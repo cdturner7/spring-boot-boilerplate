@@ -1,0 +1,10 @@
+<th:block th:fragment="cta(title, subText, text, buttonText, buttonLink)">
+    <section class="neu-card neu-shadow py-16 sm:px-8 lg:px-16 flex flex-col items-start gap-6">
+        <hgroup>
+            <h2 th:text="${title}" class="text-3xl font-semibold text-white"></h2>
+            <p th:text="${subText}" class="mt-2 text-gray-400 text-lg"></p>
+        </hgroup>
+        <p th:text="${text}" class="max-w-xl text-sm text-gray-500"></p>
+        <th:block th:replace="~{fragments/button :: primary(${buttonText}, ${buttonLink})}" />
+    </section>
+</th:block>

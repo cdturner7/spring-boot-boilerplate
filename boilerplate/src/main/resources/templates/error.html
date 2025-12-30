@@ -1,6 +1,7 @@
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="www.ultraq.net.nz"
       layout:decorate="~{layouts/main-layout}">
     
     <head>
@@ -8,9 +9,7 @@
     </head>
 
     <body>
-
-        <!-- ERROR Page main content plug -->
-        <th:block layout:fragment="content">
+        <div layout:fragment="content">
             
             <div class="error-container">
                 <h1>Oops! Something went wrong.</h1>
@@ -18,8 +17,6 @@
                 <p><a th:href="@{/}">Return to Home</a></p>
             </div>
 
-        </th:block>
-
+        </div>
     </body>
-
 </html>

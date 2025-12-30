@@ -8,7 +8,11 @@
  *******************************************************************************
 -->
  <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="www.ultraq.net.nz"
+      class="bg-light-theme dark:bg-dark-theme scroll-smooth">
+
     <!-- insert head -->
     <head>
         <th:block th:replace="~{fragments/head :: head}"/>
@@ -17,18 +21,16 @@
     </head>
 
     <!-- start of body -->
-    <body class="d-flex flex-column h-100">
+    <body class="flex flex-col bg-neu-light-100 dark:bg-neu-dark-100">
         <!-- insert header -->
         <th:block th:replace="~{fragments/header :: header}"></th:block>
         
         <!-- start main content -->
-        <th:block layout:fragment="content"></th:block>
+        <th:block layout:fragment="content" class="container mx-auto flex-1 p-6 my-6"></th:block>
         <!-- end main content -->
 
         <!-- insert footer -->
         <th:block th:replace="~{fragments/footer :: footer}"></th:block>
-
-        
     </body>
     <!-- end body -->
     

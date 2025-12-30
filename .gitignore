@@ -31,3 +31,12 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Tailwind (generated css) ###
+style.css
+
+### Node ###
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

@@ -1,29 +1,25 @@
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="www.ultraq.net.nz"
       layout:decorate="~{layouts/main-layout}">
     
     <head>
-        <title>Boilerplate</title>
+        <title>Home</title>
     </head>
 
     <body>
-
-        <!-- INDEX Page main content plug -->
-        <th:block layout:fragment="content">
+        <div layout:fragment="content">
             
-            <div class="container">
-                <h1>Boilerplate Web App</h1>
-                <h3 th:text="#{app.greeting(${username})}">Hello!</h3>
+            <th:block th:replace="~{fragments/heading :: h1('Boilerplate Web App')}"></th:block>
+            <th:block th:replace="~{fragments/heading :: h3(#{app.greeting(${username})})}"></th:block>
+            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis dolores explicabo
+                harum eveniet tempore. Iste, sapiente voluptatem. Nisi in et dolores eaque, a unde hic blanditiis
+                beatae quidem sint nihil?
+            </p>
 
-                <p class="my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi ipsum nam obcaecati iusto optio dignissimos doloribus eumm, quae itaque, saepe, ut ipsam repellat tempora quos a tenetur odio!</p>
-                <p class="my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi ipsum nam obcaecati iusto optio dignissimos doloribus eum quisquam laudantium, quae itaque, saepe, ut ipsam repellat tempora quos a tenetur odio!</p>
-                <p class="my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi ipsum nam obcaecati iuae itaque, saepe, ut ipsam repellat tempora quos a tenetur odio!</p>
-                <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis dolores explicabo harum eveniet tempore. Iste, sapiente voluptatem. Nisi in et dolores eaque, a unde hic blanditiis beatae quidem sint nihil?</p>
-            </div>
+            <th:block th:replace="~{fragments/cta :: cta('Get Started', 'We Need You', #{default.card.text}, 'Sandbox', '/sandbox')}"></th:block>
 
-        </th:block>
-
+        </div>
     </body>
-
 </html>
